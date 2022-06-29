@@ -53,7 +53,7 @@ function Home() {
       <Button onClick={()=>{
         nav('/signup')
       }}>Sign Up</Button>
-      <h1>Guinter Blog 2</h1>
+      <h1>Guinter Blog</h1>
       <h2>All Posts</h2>
       <Stack sx={{padding:'2vw'}}>
         {posts.map((e, i) => {
@@ -77,7 +77,7 @@ function Home() {
               )
         })}
       </Stack>
-
+      <a href="https://iconscout.com/icons/g" target="_blank">G Icon</a> by <a href="https://iconscout.com/contributors/twitter-inc" target="_blank">Twitter Emoji</a>
     </div>
   );
 }
