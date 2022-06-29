@@ -54,7 +54,7 @@ function Home() {
       <Button onClick={()=>{
         nav('/signup')
       }}>Sign Up</Button>
-      <h1>Guinter Blog</h1>
+      <h1>Guinter Blog 2</h1>
       <h2>All Posts</h2>
       <Stack sx={{padding:'2vw'}}>
         {posts.map((e, i) => {
