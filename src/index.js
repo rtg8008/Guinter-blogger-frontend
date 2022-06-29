@@ -1,13 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import App from './components/login';
+import SignUp from './components/sign-up';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Router, Routes, Route } from 'react-router-dom';
+import Posts from './components/view-posts';
+import ProfileProvider from './components/ProfileContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+  <ProfileProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path = "/" element={<App />}/>
+        <Route path = "/signup" element={<SignUp />}/>
+        <Route path = "/posts" element={<Posts />}/>
+      </Routes>
+    </BrowserRouter>
+  </ProfileProvider>
   </React.StrictMode>
 );
 
