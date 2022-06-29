@@ -1,6 +1,6 @@
 import '../App.css';
 import React, { useEffect } from 'react';
-import { TextField, Stack, Button, FormControl } from '@mui/material';
+import { TextField, Stack, Button, FormControl, Card, Paper, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { API_URL, ProfileContext } from './ProfileContext';
 import bcrypt from 'bcryptjs';
@@ -87,17 +87,23 @@ function SignUp() {
             nav('/')
           }}>Home</Button>
         </div>
-        <FormControl>
-        <Stack>
-          <h1>Sign Up</h1>
-          <TextField id="first_name" label="First Name" variant="filled" />
-          <TextField id="last_name" label="Last Name" variant="filled" />
+        <Box>
+          <Paper sx={{margin: '10vw'}} elevation={10}>
+            <FormControl>
+              <Stack>
+                <h1>Sign Up</h1>
+                <TextField id="first_name" label="First Name" variant="filled" />
+                <TextField id="last_name" label="Last Name" variant="filled" />
 
-          <TextField id="username" label="Username" variant="filled" />
-          <TextField id="password" label="Password" variant="filled" />
-          <Button onClick = {()=>{signupHandler()}}id="submit" label="Submit" variant="filled">Submit</Button>
-        </Stack>
-      </FormControl>
+                <TextField id="username" label="Username" variant="filled" />
+                <TextField id="password" label="Password" variant="filled" />
+                <Button onClick = {()=>{signupHandler()}}id="submit" label="Submit" variant="filled">Submit</Button>
+              </Stack>
+            </FormControl>
+          </Paper>
+        </Box>
+
+
       </Stack>
 
 

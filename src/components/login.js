@@ -1,6 +1,6 @@
 import '../App.css';
 import React, { useEffect } from 'react';
-import { TextField, Stack, Button, FormControl } from '@mui/material';
+import { TextField, Stack, Button, FormControl, Box, Paper } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { ProfileContext } from './ProfileContext';
 import {API_URL} from './ProfileContext';
@@ -67,14 +67,19 @@ function Login() {
             nav('/')
           }}>Home</Button>
         </div>
-        <FormControl>
-          <Stack>
-            <h1>Login</h1>
-            <TextField id="username" label="Username" variant="filled" />
-            <TextField id="password" type="password" label="Password" variant="filled" />
-            <Button onClick={()=>{loginHandler()}} id="submit" label="Submit" variant="filled">Submit</Button>
-          </Stack>        
-        </FormControl>
+        <Box>
+          <Paper sx={{margin: '10vw'}} elevation={10}>
+            <FormControl>
+              <Stack>
+                <h1>Login</h1>
+                <TextField id="username" label="Username" variant="filled" />
+                <TextField id="password" type="password" label="Password" variant="filled" />
+                <Button onClick={()=>{loginHandler()}} id="submit" label="Submit" variant="filled">Submit</Button>
+              </Stack>        
+            </FormControl>
+          </Paper>
+        </Box>
+
       </Stack>
 
 

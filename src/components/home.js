@@ -4,7 +4,7 @@ import { TextField, Stack, Button, CardContent, Typography, CardActions } from '
 import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import { API_URL, ProfileContext } from './ProfileContext';
-
+import PostDialog from './PostDialog';
 
 function Home() {
   const [posts, setPosts] = React.useState([{title: '', content: ''}])
@@ -40,14 +40,19 @@ function Home() {
     })
     return result;
   }
-
+  const reducePostLength = (post) =>{
+    if (post.length > 100){
+      return post.substring(0, 100) + '...'
+    }
+    return post;
+  }
 
   return (
     <div className="App" >
       {/* {names.map((e, i) => {
         return <p key = {e.id}>{e.first_name}</p>
       })} */}
-      <Button onClick={()=>{
+      <Button sx={{margin: '1vw'}} onClick={()=>{
         nav('/login')
       }}>Login</Button>
       <Button onClick={()=>{
@@ -70,8 +75,11 @@ function Home() {
                     Title: {e.title}
                   </Typography>
                   <Typography variant="body1" sx={{textAlign:'left'}}>
-                    {e.content}
+                    {reducePostLength(e.content)}
                   </Typography>
+                  <CardActions>
+                    <PostDialog post={e} username={getUsernameFromUserID(e.user_id)}></PostDialog>
+                  </CardActions>
                 </CardContent>
               </Card>
               )

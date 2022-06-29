@@ -1,9 +1,10 @@
 import '../App.css';
 import React, { useEffect } from 'react';
-import { TextField, Stack, Button, CardContent, Typography, CardActions } from '@mui/material';
+import { TextField, Stack, Button, CardContent, Typography, CardActions, TextareaAutosize, Paper, Box, Dialog, DialogTitle, DialogContent, DialogContentText } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import { API_URL, ProfileContext } from './ProfileContext';
+import PostDialog from './PostDialog';
 
 
 function Posts() {
@@ -22,16 +23,22 @@ function Posts() {
       setMembers(data)
       console.log(data)
     });
-    fetch(`${API_URL}posts/${profile.id}`)
-    .then(res => res.json())
-    .then (data => {
-      let temp = data.map((e)=>{
-        e.isEditing = false;
-        return e;
+    if(profile.id === undefined || profile.id === null)
+    {
+
+    }else{
+      fetch(`${API_URL}posts/${profile.id}`)
+      .then(res => res.json())
+      .then (data => {
+        let temp = data.map((e)=>{
+          e.isEditing = false;
+          return e;
+        });
+        console.log('printing data with isediting var',temp);
+        setPosts(temp)
       });
-      console.log('printing data with isediting var',temp);
-      setPosts(temp)
-    });
+    }
+
   },[profile])
   const newPostHandler = () =>
   {
@@ -42,6 +49,8 @@ function Posts() {
       user_id: profile.id,
       date: (new Date().toUTCString())
     }
+
+
     console.log('data', data);
     const init = {
       method: 'POST',
@@ -105,6 +114,7 @@ function Posts() {
       user_id: profile.id,
       date: (new Date().toUTCString())
     }
+
     console.log(data);
     const init = {
       method: 'PATCH',
@@ -144,6 +154,12 @@ function Posts() {
       }
     })   
   }
+  const reducePostLength = (post) =>{
+    if (post.length > 100){
+      return post.substring(0, 100) + '...'
+    }
+    return post;
+  }
 
   return (
     <div className="App">
@@ -153,19 +169,25 @@ function Posts() {
       <Button onClick={()=>{
         nav('/')
       }}>Home</Button>
-      <h1>{profile.username}</h1>
-      <h2>New Post</h2>
-      <Stack sx={{backgroundColor: 'grey'}}>
-        <TextField id = 'new-post-title' label='Title'></TextField>
-        <TextField id = 'new-post-content' label='Content'></TextField>
-        <Button onClick={()=>{newPostHandler()}}>Post</Button>
-      </Stack>
+      <h1>{profile.username}'s Blog Posts</h1>
+      <Box>
+        <Paper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}} elevation={10}>
+          <Stack sx={{backgroundColor: 'grey', margin: '1vw'}} spacing={2}>
+            <h2>New Post</h2>
+            <TextField sx={{margin: '2vw'}} id = 'new-post-title' label='Title'></TextField>
+            <TextField sx={{margin: '2vw'}} id = 'new-post-content' label='Content'></TextField>
+            <Button sx={{margin: '2vw'}} onClick={()=>{newPostHandler()}}>Post</Button>
+          </Stack>
+        </Paper>
+      </Box>
+
+
       <h2>Your Posts</h2>
       <Stack sx={{padding:'2vw'}}>
         {posts.map((e, i) => {
           if (e.isEditing){
             return (
-              <Card sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', padding: '2vw'}}>
+              <Card sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}}>
                 <CardContent>
                   <Typography sx={{fontSize:14}} color ="text.secondary" gutterBottom>
                     {e.date}
@@ -173,8 +195,18 @@ function Posts() {
                   <Typography sx={{fontSize:14, textAlign: 'left'}} color ="text.secondary" gutterBottom>
                     From: {getUsernameFromUserID(e.user_id)}
                   </Typography>
-                    <TextField id={`edit-post-title${e.id}`} label='Title' defaultValue={e.title}/>
-                    <TextField id={`edit-post-content${e.id}`}  label='Content' defaultValue={e.content}/>
+                  <Stack>
+                    <TextField
+                      id={`edit-post-title${e.id}`}
+                      label='Title'
+                      defaultValue={e.title}
+                    />
+                    <TextareaAutosize 
+                      id={`edit-post-content${e.id}`}
+                      label='Content' 
+                      defaultValue={e.content}
+                    />
+                  </Stack>
                 </CardContent>
                 <CardActions>
                   <Button onClick={() => {submitChangesHandler(e.id)}} size='small'>submit</Button>
@@ -197,10 +229,11 @@ function Posts() {
                     Title: {e.title}
                   </Typography>
                   <Typography variant='body1' sx={{textAlign: 'left'}}>
-                    {e.content}
+                    {reducePostLength(e.content)}
                   </Typography>
                 </CardContent>
                 <CardActions>
+                  <PostDialog post={e} username={getUsernameFromUserID(e.user_id)}></PostDialog>
                   <Button onClick={() => {editPostHandler(e.id)}} size='small'>edit</Button>
                   <Button onClick={()=>{deletePostHandler(e.id)}} size='small'>delete</Button>
                 </CardActions>
@@ -214,5 +247,7 @@ function Posts() {
     </div>
   );
 }
+
+
 
 export default Posts;
