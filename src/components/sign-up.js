@@ -4,6 +4,7 @@ import { TextField, Stack, Button, FormControl, Card, Paper, Box } from '@mui/ma
 import { useNavigate } from 'react-router-dom';
 import { API_URL, ProfileContext } from './ProfileContext';
 import bcrypt from 'bcryptjs';
+import { ColorButton, ColoredPaper, MyTextField } from './CustomComponents';
 
 
 
@@ -78,29 +79,28 @@ function SignUp() {
       {/* {names.map((e, i) => {
         return <p key = {e.id}>{e.first_name}</p>
       })} */}
+      <ColorButton sx={{margin: '0.5vw'}} onClick={()=>{
+        nav('/login')
+      }}>Login</ColorButton>
+      <ColorButton sx={{margin: '0.5vw'}}onClick={()=>{
+        nav('/')
+      }}>Home</ColorButton>
       <Stack spacing={2}>
-        <div>
-          <Button sx={{textAlign: 'center'}} onClick={()=>{
-            nav('/login')
-          }}>Login</Button>
-          <Button onClick={()=>{
-            nav('/')
-          }}>Home</Button>
-        </div>
-        <Box>
-          <Paper sx={{margin: '10vw'}} elevation={10}>
-            <FormControl>
-              <Stack>
-                <h1>Sign Up</h1>
-                <TextField id="first_name" label="First Name" variant="filled" />
-                <TextField id="last_name" label="Last Name" variant="filled" />
 
-                <TextField id="username" label="Username" variant="filled" />
-                <TextField id="password" label="Password" variant="filled" />
+        <Box>
+          <ColoredPaper sx={{margin: '10vw'}} elevation={10}>
+            <FormControl>
+              <Stack spacing={1}>
+                <h1>Sign Up</h1>
+                <MyTextField id="first_name" label="First Name"  />
+                <MyTextField id="last_name" label="Last Name"  />
+
+                <MyTextField id="username" label="Username"  />
+                <MyTextField id="password" type={'password'} label="Password"  />
                 <Button onClick = {()=>{signupHandler()}}id="submit" label="Submit" variant="filled">Submit</Button>
               </Stack>
             </FormControl>
-          </Paper>
+          </ColoredPaper>
         </Box>
 
 

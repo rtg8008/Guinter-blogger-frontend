@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import { API_URL, ProfileContext } from './ProfileContext';
 import PostDialog from './PostDialog';
-
+import {ColorButton, PostCard, PostCardEdit, ColoredPaper, MyTextField} from './CustomComponents'
 
 function Posts() {
   const [posts, setPosts] = React.useState([{title: '', content: ''}])
@@ -166,19 +166,19 @@ function Posts() {
       {/* {names.map((e, i) => {
         return <p key = {e.id}>{e.first_name}</p>
       })} */}
-      <Button onClick={()=>{
+      <ColorButton onClick={()=>{
         nav('/')
-      }}>Home</Button>
+      }}>Home</ColorButton>
       <h1>{profile.username}'s Blog Posts</h1>
       <Box>
-        <Paper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}} elevation={10}>
+        <ColoredPaper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}} elevation={10}>
           <Stack sx={{backgroundColor: 'grey', margin: '1vw'}} spacing={2}>
             <h2>New Post</h2>
-            <TextField sx={{margin: '2vw'}} id = 'new-post-title' label='Title'></TextField>
-            <TextField sx={{margin: '2vw'}} id = 'new-post-content' label='Content'></TextField>
-            <Button sx={{margin: '2vw'}} onClick={()=>{newPostHandler()}}>Post</Button>
+            <MyTextField sx={{margin: '2vw'}} id = 'new-post-title' label='Title'></MyTextField>
+            <MyTextField multiline maxRows={5} minRows={3} sx={{margin: '2vw'}} id = 'new-post-content' label='Content'></MyTextField>
+            <ColorButton sx={{margin: '2vw'}} onClick={()=>{newPostHandler()}}>Post</ColorButton>
           </Stack>
-        </Paper>
+        </ColoredPaper>
       </Box>
 
 
@@ -187,7 +187,7 @@ function Posts() {
         {posts.map((e, i) => {
           if (e.isEditing){
             return (
-              <Card sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}}>
+              <PostCardEdit sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}}>
                 <CardContent>
                   <Typography sx={{fontSize:14}} color ="text.secondary" gutterBottom>
                     {e.date}
@@ -195,13 +195,13 @@ function Posts() {
                   <Typography sx={{fontSize:14, textAlign: 'left'}} color ="text.secondary" gutterBottom>
                     From: {getUsernameFromUserID(e.user_id)}
                   </Typography>
-                  <Stack>
-                    <TextField
+                  <Stack spacing={2}>
+                    <MyTextField
                       id={`edit-post-title${e.id}`}
                       label='Title'
                       defaultValue={e.title}
                     />
-                    <TextareaAutosize 
+                    <MyTextField multiline maxRows={5} minRows={3}
                       id={`edit-post-content${e.id}`}
                       label='Content' 
                       defaultValue={e.content}
@@ -209,24 +209,24 @@ function Posts() {
                   </Stack>
                 </CardContent>
                 <CardActions>
-                  <Button onClick={() => {submitChangesHandler(e.id)}} size='small'>submit</Button>
-                  <Button onClick={()=>{cancelChangesHandler(e.id)}} size='small'>cancel</Button>
+                  <ColorButton onClick={() => {submitChangesHandler(e.id)}} size='small'>submit</ColorButton>
+                  <ColorButton onClick={()=>{cancelChangesHandler(e.id)}} size='small'>cancel</ColorButton>
                 </CardActions>
-              </Card>
+              </PostCardEdit>
               )
           }else{
 
             return (
-              <Card sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}}>
+              <PostCard sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}}>
                 <CardContent>
-                  <Typography sx={{fontSize:14}} color ="text.secondary" gutterBottom>
+                  <Typography sx={{fontSize:14}}  gutterBottom>
                     {e.date}
                   </Typography>
-                  <Typography variant='h4' sx={{textAlign: 'left'}} color ="text.secondary" gutterBottom>
-                    From: {getUsernameFromUserID(e.user_id)}
+                  <Typography variant='h4' sx={{textAlign: 'center'}}gutterBottom>
+                    {e.title}
                   </Typography>
-                  <Typography variant='h5' sx={{textAlign: 'left'}} color ="text.secondary" gutterBottom>
-                    Title: {e.title}
+                  <Typography variant='h5' sx={{textAlign: 'left'}} gutterBottom>
+                    From: {getUsernameFromUserID(e.user_id)}
                   </Typography>
                   <Typography variant='body1' sx={{textAlign: 'left'}}>
                     {reducePostLength(e.content)}
@@ -234,10 +234,10 @@ function Posts() {
                 </CardContent>
                 <CardActions>
                   <PostDialog post={e} username={getUsernameFromUserID(e.user_id)}></PostDialog>
-                  <Button onClick={() => {editPostHandler(e.id)}} size='small'>edit</Button>
-                  <Button onClick={()=>{deletePostHandler(e.id)}} size='small'>delete</Button>
+                  <ColorButton onClick={() => {editPostHandler(e.id)}} size='small'>edit</ColorButton>
+                  <ColorButton onClick={()=>{deletePostHandler(e.id)}} size='small'>delete</ColorButton>
                 </CardActions>
-              </Card>
+              </PostCard>
               )
 
           }

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { ProfileContext } from './ProfileContext';
 import {API_URL} from './ProfileContext';
 import bcrypt from 'bcryptjs';
-
+import {ColorButton, ColoredPaper, MyTextField} from './CustomComponents'
 
 function Login() {
   const [members, setMembers] = React.useState([{name: ''}])
@@ -60,24 +60,24 @@ function Login() {
       })} */}
       <Stack spacing={2}>
         <div>
-          <Button onClick={()=>{
+          <ColorButton sx={{margin: '0.5vw'}} onClick={()=>{
             nav('/signup')
-          }}>Sign Up</Button>
-          <Button onClick={()=>{
+          }}>Sign Up</ColorButton>
+          <ColorButton sx={{margin: '0.5vw'}} onClick={()=>{
             nav('/')
-          }}>Home</Button>
+          }}>Home</ColorButton>
         </div>
         <Box>
-          <Paper sx={{margin: '10vw'}} elevation={10}>
+          <ColoredPaper sx={{margin: '10vw'}} elevation={10}>
             <FormControl>
-              <Stack>
+              <Stack spacing={1}>
                 <h1>Login</h1>
-                <TextField id="username" label="Username" variant="filled" />
-                <TextField id="password" type="password" label="Password" variant="filled" />
+                <MyTextField id="username" label="Username" />
+                <MyTextField id="password" type="password" label="Password"  />
                 <Button onClick={()=>{loginHandler()}} id="submit" label="Submit" variant="filled">Submit</Button>
               </Stack>        
             </FormControl>
-          </Paper>
+          </ColoredPaper>
         </Box>
 
       </Stack>

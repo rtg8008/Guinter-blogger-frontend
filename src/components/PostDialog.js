@@ -5,7 +5,7 @@ import { TextField, Stack, Button, CardContent, Typography, CardActions, Textare
 import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import { API_URL, ProfileContext } from './ProfileContext';
-
+import { ColorButton } from './CustomComponents';
 
 const PostDialog = ({post, username}) => {
   const [open, setOpen] = React.useState(false);
@@ -18,7 +18,7 @@ const PostDialog = ({post, username}) => {
   }
   return (
     <>
-    <Button onClick ={handleOpen}>Read More</Button>
+    <ColorButton onClick ={handleOpen}>Read More</ColorButton>
     <Dialog
     open={open}
     onClose={handleClose}
@@ -41,7 +41,7 @@ const PostDialog = ({post, username}) => {
 
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>close</Button>
+        <ColorButton onClick={handleClose}>close</ColorButton>
       </DialogActions>
     </Dialog>    
     </>
