@@ -1,10 +1,12 @@
 import '../App.css';
-import React, { useEffect } from 'react';
-import { TextField, Stack, Button, FormControl, Card, Paper, Box } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { TextField, Stack, Button, FormControl, Card, Paper, Box, Alert } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { API_URL, ProfileContext } from './ProfileContext';
 import bcrypt from 'bcryptjs';
 import { ColorButton, ColoredPaper, MyTextField } from './CustomComponents';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
 
 
@@ -23,6 +25,56 @@ function SignUp() {
       // console.log(data)
     });
   },[])
+
+  return (
+    <div className="App">
+      {/* {names.map((e, i) => {
+        return <p key = {e.id}>{e.first_name}</p>
+      })} */}
+      <ColorButton sx={{margin: '0.5vw'}} onClick={()=>{
+        nav('/login')
+      }}>Login</ColorButton>
+      <ColorButton sx={{margin: '0.5vw'}}onClick={()=>{
+        nav('/')
+      }}>Home</ColorButton>
+      <Stack spacing={2}>
+
+        <Box>
+          <ColoredPaper sx={{margin: '10vw'}} elevation={10}>
+            <FormControl>
+              <Stack spacing={1}>
+                <h1>Sign Up</h1>
+                <MyTextField id="first_name" label="First Name"  />
+                <MyTextField id="last_name" label="Last Name"  />
+                <MyTextField id="username" label="Username"  />
+                <MyTextField id="password" type={'password'} label="Password"  />
+                <SignUpButton members={members} setMembers={setMembers} setProfile={setProfile} ></SignUpButton>
+              </Stack>
+            </FormControl>
+          </ColoredPaper>
+        </Box>
+
+
+      </Stack>
+
+
+
+
+    </div>
+  );
+}
+
+const SignUpButton = ({members, setMembers, setProfile}) => {
+  const nav = useNavigate();
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  }
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') return;
+    setOpen(false);
+  }
   const signupHandler = () => {
     // console.log(document.getElementById('username').value);
     const submittedUsername = document.getElementById('username').value;
@@ -40,6 +92,7 @@ function SignUp() {
     })
     if(!validSignUp)
     {
+      setOpen(true);
       // console.log('login not successful')
     }else{
       let data = {
@@ -68,49 +121,19 @@ function SignUp() {
         })      
       
       })
-
-
-    }
-        
+    }  
   }
 
   return (
-    <div className="App">
-      {/* {names.map((e, i) => {
-        return <p key = {e.id}>{e.first_name}</p>
-      })} */}
-      <ColorButton sx={{margin: '0.5vw'}} onClick={()=>{
-        nav('/login')
-      }}>Login</ColorButton>
-      <ColorButton sx={{margin: '0.5vw'}}onClick={()=>{
-        nav('/')
-      }}>Home</ColorButton>
-      <Stack spacing={2}>
-
-        <Box>
-          <ColoredPaper sx={{margin: '10vw'}} elevation={10}>
-            <FormControl>
-              <Stack spacing={1}>
-                <h1>Sign Up</h1>
-                <MyTextField id="first_name" label="First Name"  />
-                <MyTextField id="last_name" label="Last Name"  />
-
-                <MyTextField id="username" label="Username"  />
-                <MyTextField id="password" type={'password'} label="Password"  />
-                <Button onClick = {()=>{signupHandler()}}id="submit" label="Submit" variant="filled">Submit</Button>
-              </Stack>
-            </FormControl>
-          </ColoredPaper>
-        </Box>
-
-
-      </Stack>
-
-
-
-
-    </div>
-  );
+    <>
+      <ColorButton onClick = {()=>{signupHandler()}}id="submit" label="Submit">Create Account</ColorButton>
+      <Snackbar anchorOrigin={{vertical: 'top', horizontal: 'center'}} open={open} autoHideDuration={5000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="error" sx={{width: '100%'}} >
+          Sign Up Failed! Please try another Username
+        </Alert>
+      </Snackbar>
+    </>
+  )
 }
 
 export default SignUp;

@@ -49,7 +49,8 @@ function Posts() {
       user_id: profile.id,
       date: (new Date().toUTCString())
     }
-
+    if (data.content.length > 255)
+      data.content = data.content.substring(0,255);
 
     // console.log('data', data);
     const init = {
@@ -114,7 +115,8 @@ function Posts() {
       user_id: profile.id,
       date: (new Date().toUTCString())
     }
-
+    if (data.content.length > 255)
+      data.content = data.content.substring(0,255);
     // console.log(data);
     const init = {
       method: 'PATCH',
