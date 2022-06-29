@@ -23,7 +23,7 @@ const PostDialog = ({post, username}) => {
     open={open}
     onClose={handleClose}
     scroll={'paper'}
-    sx={{width: '50vw', margin: '25vw'}}
+    // sx={{width: '50vw', margin: '25vw'}}
     >
       <DialogTitle id={`dialog-title-${post.id}`}>{post.title}</DialogTitle>
       <DialogContent
