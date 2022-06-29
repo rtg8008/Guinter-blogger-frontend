@@ -7,6 +7,7 @@ import { API_URL, ProfileContext } from './ProfileContext';
 
 
 function Home() {
+  console.log(process.env);
   const [posts, setPosts] = React.useState([{title: '', content: ''}])
   const [members, setMembers] = React.useState([{name: ''}])
 
