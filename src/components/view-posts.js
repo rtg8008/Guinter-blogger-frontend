@@ -39,7 +39,8 @@ function Posts() {
     let data = {
       title: document.getElementById('new-post-title').value,
       content: document.getElementById('new-post-content').value,
-      user_id: profile.id
+      user_id: profile.id,
+      date: (new Date().toUTCString())
     }
     console.log('data', data);
     const init = {
@@ -101,7 +102,8 @@ function Posts() {
     let data = {
       title: document.getElementById(`edit-post-title${id}`).value,
       content: document.getElementById(`edit-post-content${id}`).value,
-      user_id: profile.id
+      user_id: profile.id,
+      date: (new Date().toUTCString())
     }
     console.log(data);
     const init = {
@@ -152,13 +154,13 @@ function Posts() {
         nav('/')
       }}>Home</Button>
       <h1>{profile.username}</h1>
-      <h2>new post</h2>
-      <Stack>
+      <h2>New Post</h2>
+      <Stack sx={{backgroundColor: 'grey'}}>
         <TextField id = 'new-post-title' label='Title'></TextField>
         <TextField id = 'new-post-content' label='Content'></TextField>
         <Button onClick={()=>{newPostHandler()}}>Post</Button>
       </Stack>
-      <h2>current posts</h2>
+      <h2>Your Posts</h2>
       <Stack sx={{padding:'2vw'}}>
         {posts.map((e, i) => {
           if (e.isEditing){
@@ -166,10 +168,13 @@ function Posts() {
               <Card sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', padding: '2vw'}}>
                 <CardContent>
                   <Typography sx={{fontSize:14}} color ="text.secondary" gutterBottom>
-                    {getUsernameFromUserID(e.user_id)}
+                    {e.date}
                   </Typography>
-                    <TextField id={`edit-post-title${e.id}`} defaultValue={e.title}/>
-                    <TextField id={`edit-post-content${e.id}`}  defaultValue={e.content}/>
+                  <Typography sx={{fontSize:14, textAlign: 'left'}} color ="text.secondary" gutterBottom>
+                    From: {getUsernameFromUserID(e.user_id)}
+                  </Typography>
+                    <TextField id={`edit-post-title${e.id}`} label='Title' defaultValue={e.title}/>
+                    <TextField id={`edit-post-content${e.id}`}  label='Content' defaultValue={e.content}/>
                 </CardContent>
                 <CardActions>
                   <Button onClick={() => {submitChangesHandler(e.id)}} size='small'>submit</Button>
@@ -180,15 +185,18 @@ function Posts() {
           }else{
 
             return (
-              <Card sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', padding: '2vw'}}>
+              <Card sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}}>
                 <CardContent>
                   <Typography sx={{fontSize:14}} color ="text.secondary" gutterBottom>
-                    {getUsernameFromUserID(e.user_id)}
+                    {e.date}
                   </Typography>
-                  <Typography sx={{fontSize:14}} color ="text.secondary" gutterBottom>
-                    {e.title}
+                  <Typography variant='h4' sx={{textAlign: 'left'}} color ="text.secondary" gutterBottom>
+                    From: {getUsernameFromUserID(e.user_id)}
                   </Typography>
-                  <Typography variant="body2">
+                  <Typography variant='h5' sx={{textAlign: 'left'}} color ="text.secondary" gutterBottom>
+                    Title: {e.title}
+                  </Typography>
+                  <Typography variant='body1' sx={{textAlign: 'left'}}>
                     {e.content}
                   </Typography>
                 </CardContent>

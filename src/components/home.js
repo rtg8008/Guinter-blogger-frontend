@@ -7,7 +7,6 @@ import { API_URL, ProfileContext } from './ProfileContext';
 
 
 function Home() {
-  console.log(process.env);
   const [posts, setPosts] = React.useState([{title: '', content: ''}])
   const [members, setMembers] = React.useState([{name: ''}])
 
@@ -59,15 +58,18 @@ function Home() {
       <Stack sx={{padding:'2vw'}}>
         {posts.map((e, i) => {
             return (
-              <Card sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', padding: '2vw'}}>
+              <Card sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}}>
                 <CardContent>
                   <Typography sx={{fontSize:14}} color ="text.secondary" gutterBottom>
-                    {getUsernameFromUserID(e.user_id)}
+                    {e.date}
                   </Typography>
-                  <Typography sx={{fontSize:14}} color ="text.secondary" gutterBottom>
-                    {e.title}
+                  <Typography variant="h4" component='div'sx={{textAlign:'left'}} color ="text.secondary" gutterBottom>
+                    From: {getUsernameFromUserID(e.user_id)}
                   </Typography>
-                  <Typography variant="body2">
+                  <Typography variant='h5'sx={{textAlign:'left'}} color ="text.secondary" gutterBottom>
+                    Title: {e.title}
+                  </Typography>
+                  <Typography variant="body1" sx={{textAlign:'left'}}>
                     {e.content}
                   </Typography>
                 </CardContent>
