@@ -78,10 +78,16 @@ function SignUp() {
       {/* {names.map((e, i) => {
         return <p key = {e.id}>{e.first_name}</p>
       })} */}
-      <Button sx={{textAlign: 'center'}} onClick={()=>{
-        nav('/')
-      }}>Login</Button>
-      <FormControl>
+      <Stack spacing={2}>
+        <div>
+          <Button sx={{textAlign: 'center'}} onClick={()=>{
+            nav('/login')
+          }}>Login</Button>
+          <Button onClick={()=>{
+            nav('/')
+          }}>Home</Button>
+        </div>
+        <FormControl>
         <Stack>
           <h1>Sign Up</h1>
           <TextField id="first_name" label="First Name" variant="filled" />
@@ -92,6 +98,9 @@ function SignUp() {
           <Button onClick = {()=>{signupHandler()}}id="submit" label="Submit" variant="filled">Submit</Button>
         </Stack>
       </FormControl>
+      </Stack>
+
+
 
 
     </div>

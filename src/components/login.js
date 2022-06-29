@@ -7,7 +7,7 @@ import {API_URL} from './ProfileContext';
 import bcrypt from 'bcryptjs';
 
 
-function App() {
+function Login() {
   const [members, setMembers] = React.useState([{name: ''}])
   const [profile, setProfile] = React.useContext(ProfileContext)
   const nav = useNavigate();
@@ -58,21 +58,30 @@ function App() {
       {/* {names.map((e, i) => {
         return <p key = {e.id}>{e.first_name}</p>
       })} */}
-      <Button onClick={()=>{
-        nav('/signup')
-      }}>Sign Up</Button>
-      <FormControl>
-        <Stack>
-          <h1>Login</h1>
-          <TextField id="username" label="Username" variant="filled" />
-          <TextField id="password" type="password" label="Password" variant="filled" />
-          <Button onClick={()=>{loginHandler()}} id="submit" label="Submit" variant="filled">Submit</Button>
-        </Stack>        
-      </FormControl>
+      <Stack spacing={2}>
+        <div>
+          <Button onClick={()=>{
+            nav('/signup')
+          }}>Sign Up</Button>
+          <Button onClick={()=>{
+            nav('/')
+          }}>Home</Button>
+        </div>
+        <FormControl>
+          <Stack>
+            <h1>Login</h1>
+            <TextField id="username" label="Username" variant="filled" />
+            <TextField id="password" type="password" label="Password" variant="filled" />
+            <Button onClick={()=>{loginHandler()}} id="submit" label="Submit" variant="filled">Submit</Button>
+          </Stack>        
+        </FormControl>
+      </Stack>
+
+
 
 
     </div>
   );
 }
 
-export default App;
+export default Login;
