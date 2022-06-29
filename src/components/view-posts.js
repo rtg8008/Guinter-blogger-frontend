@@ -49,8 +49,11 @@ function Posts() {
       user_id: profile.id,
       date: (new Date().toUTCString())
     }
-    if (data.content.length > 255)
-      data.content = data.content.substring(0,255);
+    if (data.content.length > 1024){
+      data.content = data.content.substring(0,1024);
+      console.log(data.content)
+      console.log(data.content.length)
+    }
 
     // console.log('data', data);
     const init = {
@@ -115,8 +118,11 @@ function Posts() {
       user_id: profile.id,
       date: (new Date().toUTCString())
     }
-    if (data.content.length > 255)
-      data.content = data.content.substring(0,255);
+    if (data.content.length > 2048){
+      data.content = data.content.substring(0,2048);
+      console.log(data.content)
+      console.log(data.content.length)
+    }
     // console.log(data);
     const init = {
       method: 'PATCH',
@@ -126,11 +132,15 @@ function Posts() {
       body: JSON.stringify(data)
     }
     fetch(`${API_URL}posts/${id}`, init)
-    .then(res => res.json())
+    .then(res => {
+      if (res.status >=400) return posts;
+      return res.json()
+    })
     .then(data => {
       setPosts(data);
 
     })
+    .catch(err => console.log(err))
 
     posts.forEach((e,i)=>{
       if(e.id === id)

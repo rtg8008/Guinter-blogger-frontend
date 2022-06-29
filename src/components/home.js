@@ -64,7 +64,7 @@ function Home() {
       <Stack sx={{padding:'2vw'}}>
         {posts.map((e, i) => {
             return (
-              <PostCard sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}}>
+              <PostCard key={i} sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}}>
                 <CardContent>
                   <Typography sx={{fontSize:14}} gutterBottom>
                     {e.date}
