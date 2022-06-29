@@ -20,13 +20,13 @@ function SignUp() {
     .then(res => res.json())
     .then (data => {
       setMembers(data)
-      console.log(data)
+      // console.log(data)
     });
   },[])
   const signupHandler = () => {
-    console.log(document.getElementById('username').value);
+    // console.log(document.getElementById('username').value);
     const submittedUsername = document.getElementById('username').value;
-    console.log(document.getElementById('password').value);
+    // console.log(document.getElementById('password').value);
     const submittedPassword = document.getElementById('password').value;
     let validSignUp = true;
     let validSignUpIndex = null;
@@ -35,12 +35,12 @@ function SignUp() {
       {
         validSignUp = false;
         validSignUpIndex = index;
-        console.log('valid login', e);
+        // console.log('valid login', e);
       }
     })
     if(!validSignUp)
     {
-      console.log('login not successful')
+      // console.log('login not successful')
     }else{
       let data = {
         first_name: document.getElementById('first_name').value,
@@ -50,7 +50,7 @@ function SignUp() {
       }
       bcrypt.hash(data.password, 10, (err, hash) => {
         data.password = hash;
-        console.log(data.password);
+        // console.log(data.password);
         const init = {
           method: 'POST',
           headers: {

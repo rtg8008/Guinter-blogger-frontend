@@ -21,7 +21,7 @@ function Posts() {
     .then(res => res.json())
     .then (data => {
       setMembers(data)
-      console.log(data)
+      // console.log(data)
     });
     if(profile.id === undefined || profile.id === null)
     {
@@ -34,7 +34,7 @@ function Posts() {
           e.isEditing = false;
           return e;
         });
-        console.log('printing data with isediting var',temp);
+        // console.log('printing data with isediting var',temp);
         setPosts(temp)
       });
     }
@@ -51,7 +51,7 @@ function Posts() {
     }
 
 
-    console.log('data', data);
+    // console.log('data', data);
     const init = {
       method: 'POST',
       headers: {
@@ -66,7 +66,7 @@ function Posts() {
 
     })
     let temp = new Date()  
-    console.log(`${temp.toDateString()} ${temp.toUTCString()}`);
+    // console.log(`${temp.toDateString()} ${temp.toUTCString()}`);
   }
   const getUsernameFromUserID = (id) => {
     let result = ''
@@ -79,7 +79,7 @@ function Posts() {
     return result;
   }
   const deletePostHandler = (postID) => {
-    console.log(postID)
+    // console.log(postID)
     const init = {
       method: 'DELETE',
       headers: {
@@ -94,7 +94,7 @@ function Posts() {
     })    
   }
   const editPostHandler = (id) => {
-    console.log('clicked edit button with id: ', id)
+    // console.log('clicked edit button with id: ', id)
     posts.forEach((e,i)=>{
       if(e.id === id)
       {
@@ -107,7 +107,7 @@ function Posts() {
     })
   }
   const submitChangesHandler = (id) => {
-    console.log('clicked edit button with id: ', id)
+    // console.log('clicked edit button with id: ', id)
     let data = {
       title: document.getElementById(`edit-post-title${id}`).value,
       content: document.getElementById(`edit-post-content${id}`).value,
@@ -115,7 +115,7 @@ function Posts() {
       date: (new Date().toUTCString())
     }
 
-    console.log(data);
+    // console.log(data);
     const init = {
       method: 'PATCH',
       headers: {
@@ -142,7 +142,7 @@ function Posts() {
     })
   }
   const cancelChangesHandler = (id) => {
-    console.log('clicked edit button with id: ', id)
+    // console.log('clicked edit button with id: ', id)
     posts.forEach((e,i)=>{
       if(e.id === id)
       {

@@ -19,14 +19,14 @@ function Login() {
     .then(res => res.json())
     .then (data => {
       setMembers(data)
-      console.log(data)
+      // console.log(data)
     });
   },[])
 
   const loginHandler = () =>{
-    console.log(document.getElementById('username').value);
+    // console.log(document.getElementById('username').value);
     const submittedUsername = document.getElementById('username').value;
-    console.log(document.getElementById('password').value);
+    // console.log(document.getElementById('password').value);
     const submittedPassword = document.getElementById('password').value;
     let validLogin = false;
     let validLoginIndex = null;
@@ -39,14 +39,14 @@ function Login() {
         {
           validLogin = true;
           validLoginIndex = index;
-          console.log('valid login', e);
-          console.log('before setting context: ', profile);
+          // console.log('valid login', e);
+          // console.log('before setting context: ', profile);
           await setProfile({id: e.id, username: e.username})
-          console.log('after setting context', profile)
+          // console.log('after setting context', profile)
           nav('/posts')
         }
         else{
-          console.log('login not successful')
+          // console.log('login not successful')
         }
       })
 

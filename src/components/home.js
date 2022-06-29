@@ -21,12 +21,12 @@ function Home() {
     .then(res => res.json())
     .then (data => {
       setMembers(data)
-      console.log(data)
+      // console.log(data)
     });
     fetch(`${API_URL}posts`)
     .then(res => res.json())
     .then (data => {
-      console.log(data);
+      // console.log(data);
       setPosts(data)
     });
   },[profile])
