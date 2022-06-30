@@ -35,7 +35,7 @@ function SignUp() {
       <Stack spacing={2}>
 
         <Box>
-          <ColoredPaper sx={{position:'fixed', top:'175px', left:'20vw', right:'20vw'}} elevation={10}>
+          <ColoredPaper sx={{position:'fixed', top:'190px', left:'20vw', right:'20vw'}} elevation={10}>
             <FormControl>
               <Stack spacing={1}>
                 <h1>Sign Up</h1>

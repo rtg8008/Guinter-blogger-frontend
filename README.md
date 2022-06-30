@@ -1,8 +1,8 @@
-# Worldwide Equipment Guide (WEG) Mission Planner 
+# Guardian Post
 
 
 ## Overview
-  Guinter Blog is an application for the purpose of the USSF Z-Prefix testing. It is a blog site where users can post a blog post, then see other blog posts different users have made
+  Guardian Post is an application for the purpose of the USSF Z-Prefix testing. It is a blog site where users can post a blog post, then see other blog posts different users have made
   >- Frontend: `https://github.com/rtg8008/Guinter-blogger-frontend`
   >- Backend: `https://github.com/rtg8008/Guinter-blog-backend`
   >- Deployment: `https://guinterblog.herokuapp.com/`

@@ -51,7 +51,7 @@ function Home() {
   return (
     <div className="App" >
       <Header></Header>
-      <ColoredPaper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', marginLeft: '12vw', marginRight: '12vw', marginBottom: '1vw', marginTop: '175px'}} elevation={10}>
+      <ColoredPaper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', marginLeft: '12vw', marginRight: '12vw', marginBottom: '1vw', marginTop: '190px'}} elevation={10}>
         <h2>All Posts</h2>
       </ColoredPaper>      
 
