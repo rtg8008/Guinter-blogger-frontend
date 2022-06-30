@@ -8,8 +8,8 @@ import PostDialog from './PostDialog';
 import { ColorButton, PostCard, ColoredPaper } from './CustomComponents';
 
 function Home() {
-  const [posts, setPosts] = React.useState([{title: '', content: ''}])
-  const [members, setMembers] = React.useState([{name: ''}])
+  const [posts, setPosts] = React.useState([])
+  const [members, setMembers] = React.useState([])
 
   const [profile, setProfile] = React.useContext(ProfileContext)
   const nav = useNavigate();
@@ -67,7 +67,7 @@ function Home() {
       </ColoredPaper>      
 
       <Stack sx={{padding:'2vw'}}>
-        {posts.map((e, i) => {
+        {posts.slice(0).reverse().map((e, i) => {
             return (
               <PostCard key={i} sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}}>
                 <CardContent>

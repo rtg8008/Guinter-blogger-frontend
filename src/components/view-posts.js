@@ -9,8 +9,8 @@ import {ColorButton, PostCard, PostCardEdit, ColoredPaper, MyTextField} from './
 import Home from './home';
 
 function Posts() {
-  const [posts, setPosts] = React.useState([{title: '', content: ''}])
-  const [members, setMembers] = React.useState([{name: ''}])
+  const [posts, setPosts] = React.useState([])
+  const [members, setMembers] = React.useState([])
 
   const [profile, setProfile] = React.useContext(ProfileContext)
   const nav = useNavigate();
@@ -220,7 +220,7 @@ function Posts() {
         <h2>Your Posts</h2>
       </ColoredPaper>
       <Stack sx={{padding:'2vw'}}>
-        {posts.map((e, i) => {
+        {posts.slice(0).reverse().map((e, i) => {
           if (e.isEditing){
             return (
               <PostCardEdit key={i} sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}}>
