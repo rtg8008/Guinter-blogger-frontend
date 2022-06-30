@@ -1,6 +1,6 @@
 import '../App.css';
-import React, { useEffect, useState } from 'react';
-import { TextField, Stack, Button, FormControl, Box, Paper  } from '@mui/material';
+import React, { useState } from 'react';
+import { Stack, FormControl, Box  } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { ProfileContext } from './ProfileContext';
 import {API_URL} from './ProfileContext';

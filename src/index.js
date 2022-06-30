@@ -1,4 +1,5 @@
 import React from 'react';
+import './polyfills'
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Login from './components/login';

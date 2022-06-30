@@ -1,10 +1,7 @@
 
 import '../App.css';
-import React, { useEffect } from 'react';
-import { TextField, Stack, Button, CardContent, Typography, CardActions, TextareaAutosize, Paper, Box, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import Card from '@mui/material/Card';
-import { API_URL, ProfileContext } from './ProfileContext';
+import React from 'react';
+import {  Dialog } from '@mui/material';
 import { ColorButton, MyDialogContent, MyDialogActions, MyDialogTitle, MyDialogContentText } from './CustomComponents';
 
 const PostDialog = ({post, username}) => {
