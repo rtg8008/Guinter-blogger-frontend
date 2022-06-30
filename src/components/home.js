@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import { API_URL, ProfileContext } from './ProfileContext';
 import PostDialog from './PostDialog';
-import { ColorButton, PostCard, MyPaper, Header } from './CustomComponents';
+import { ColorButton, ContrastButton, PostCard, MyPaper, Header } from './CustomComponents';
 
 function Home() {
   const [posts, setPosts] = React.useState([])

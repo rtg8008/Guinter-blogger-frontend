@@ -2,7 +2,7 @@
 import '../App.css';
 import React from 'react';
 import {  Dialog } from '@mui/material';
-import { ColorButton, MyDialogContent, MyDialogActions, MyDialogTitle, MyDialogContentText } from './CustomComponents';
+import { ColorButton, MyDialogContent, MyDialogActions, MyDialogTitle, MyDialogContentText, ContrastButton } from './CustomComponents';
 
 const PostDialog = ({post, username}) => {
   const [open, setOpen] = React.useState(false);
@@ -15,7 +15,7 @@ const PostDialog = ({post, username}) => {
   }
   return (
     <>
-    <ColorButton size='small' onClick ={handleOpen}>Read More</ColorButton>
+    <ContrastButton size='small' onClick ={handleOpen}>Read More</ContrastButton>
     <Dialog
     open={open}
     onClose={handleClose}

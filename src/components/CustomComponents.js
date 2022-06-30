@@ -8,13 +8,28 @@ const ColorButton = styled(Button)(({ theme }) => ({
   color: 'rgba(219, 239, 255, 0.95)',
   backgroundColor: '#0d0f13da',
   boxShadow: '5px',
-  // border: '1px solid',
-  // borderColor: '#302f3f',
+  border: '1px solid',
+  borderColor: 'rgba(219, 239, 255, 0.95)',
   '&:hover': {
     backgroundColor: 'rgba(219, 239, 255, 0.95)',
     color: '#0d0f13da',
-    // border: '1px solid',
-    // borderColor: '#282c34',
+    border: '1px solid',
+    borderColor: '#0d0f13da',
+
+  },
+}));
+const ContrastButton = styled(Button)(({ theme }) => ({
+  backgroundColor: 'rgba(219, 239, 255, 0.95)',
+  color: '#0d0f13da',
+  boxShadow: '5px',
+  border: '1px solid',
+  borderColor: '#0d0f13da',
+  '&:hover': {
+
+    color: 'rgba(219, 239, 255, 0.95)',
+    backgroundColor: '#0d0f13da',
+    border: '1px solid',
+    borderColor: 'rgba(219, 239, 255, 0.95)',
 
   },
 }));
@@ -114,7 +129,7 @@ const MyDialogContentText = styled(DialogContentText)(({ theme }) => ({
   color: '#131925',
   padding: '1vw',
   backgroundColor: 'rgba(219, 239, 255, 0.95)',
-  minWidth: '55vw',
+  // minWidth: '55vw',
   minHeight: '40vw',
   maxHeight: '50vw',
   boxShadow: '5px',
@@ -176,4 +191,4 @@ const MySnackBar = styled(Snackbar)(() => ({
   zIndex: 3000,
 
 }));
-export {ColorButton, MySnackBar, PostCard, PostCardEdit, MyPaper, MyTextField, MyDialogContent, MyDialogActions, MyDialogTitle, MyDialogContentText, Header};
+export {ColorButton, MySnackBar, PostCard, PostCardEdit, MyPaper, MyTextField, MyDialogContent, MyDialogActions, MyDialogTitle, MyDialogContentText, ContrastButton, Header};

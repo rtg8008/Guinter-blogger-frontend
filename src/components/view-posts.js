@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import { API_URL, ProfileContext } from './ProfileContext';
 import PostDialog from './PostDialog';
-import {ColorButton, PostCard, PostCardEdit, MyPaper, MyTextField, Header} from './CustomComponents'
+import {ColorButton, PostCard, PostCardEdit, MyPaper, MyTextField, Header, ContrastButton} from './CustomComponents'
 import Home from './home';
 
 function Posts() {
@@ -206,7 +206,7 @@ function Posts() {
         <MyPaper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}} elevation={8}>
           <Stack sx={{backgroundColor: 'grey', margin: '1vw'}} spacing={2}>
             <h2>New Post</h2>
-            <MyTextField sx={{margin: '2vw'}} id = 'new-post-title' label='title'></MyTextField>
+            <MyTextField sx={{margin: '2vw'}} id = 'new-post-title' label='Title'></MyTextField>
             <MyTextField multiline maxRows={5} minRows={3} sx={{margin: '2vw'}} id = 'new-post-content' label='Content'></MyTextField>
             <ColorButton sx={{margin: '2vw'}} onClick={()=>{newPostHandler()}}>Post</ColorButton>
           </Stack>
@@ -235,7 +235,7 @@ function Posts() {
                       label='Title'
                       defaultValue={e.title}
                     />
-                    <MyTextField multiline maxRows={5} minRows={3}
+                    <MyTextField multiline maxRows={4} minRows={1}
                       id={`edit-post-content${e.id}`}
                       label='Content' 
                       defaultValue={e.content}
@@ -268,8 +268,8 @@ function Posts() {
                 </CardContent>
                 <CardActions>
                   <PostDialog post={e} username={getUsernameFromUserID(e.user_id)}></PostDialog>
-                  <ColorButton onClick={() => {editPostHandler(e.id)}} size='small'>edit</ColorButton>
-                  <ColorButton onClick={()=>{deletePostHandler(e.id)}} size='small'>delete</ColorButton>
+                  <ContrastButton onClick={() => {editPostHandler(e.id)}} size='small'>edit</ContrastButton>
+                  <ContrastButton onClick={()=>{deletePostHandler(e.id)}} size='small'>delete</ContrastButton>
                 </CardActions>
               </PostCard>
               )
