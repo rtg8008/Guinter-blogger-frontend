@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { ProfileContext } from './ProfileContext';
 import {API_URL} from './ProfileContext';
 import bcrypt from 'bcryptjs';
-import {ColorButton, ColoredPaper, MyTextField, Header} from './CustomComponents'
+import {ColorButton, MySnackBar, ColoredPaper, MyTextField, Header} from './CustomComponents'
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 function Login() {
@@ -99,11 +99,11 @@ const LoginButton = ({members, setMembers, setProfile}) => {
   return (
     <>
       <ColorButton onClick = {()=>{loginHandler()}}id="submit" label="Submit">Login</ColorButton>
-      <Snackbar anchorOrigin={{vertical: 'top', horizontal: 'center'}} open={open} autoHideDuration={5000} onClose={handleClose}>
+      <MySnackBar anchorOrigin={{vertical: 'bottom', horizontal: 'center'}} open={open} autoHideDuration={5000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="error" sx={{width: '100%'}} >
           Login Failed! Please enter the correct Username and Password
         </Alert>
-      </Snackbar>
+      </MySnackBar>
     </>
   )
 }

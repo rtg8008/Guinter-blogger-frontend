@@ -1,18 +1,18 @@
 import styled from "@emotion/styled";
-import { Button, Card, DialogTitle, DialogActions, DialogContent, DialogContentText, Paper, TextField } from "@mui/material";
+import { Button, Card, DialogTitle, DialogActions, DialogContent, DialogContentText, Paper, TextField, Snackbar } from "@mui/material";
 // import zIndex from "@mui/material/styles/zIndex";
 import { useNavigate } from "react-router-dom";
 
 
 const ColorButton = styled(Button)(({ theme }) => ({
-  color: 'rgba(191, 225, 255, 0.95)',
-  backgroundColor: '#282c34da',
+  color: 'rgba(219, 239, 255, 0.95)',
+  backgroundColor: '#0d0f13da',
   boxShadow: '5px',
   // border: '1px solid',
   // borderColor: '#302f3f',
   '&:hover': {
-    backgroundColor: 'rgba(191, 225, 255, 0.95)',
-    color: '#282c34da',
+    backgroundColor: 'rgba(219, 239, 255, 0.95)',
+    color: '#0d0f13da',
     // border: '1px solid',
     // borderColor: '#282c34',
 
@@ -20,8 +20,8 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 const PostCard = styled(Card)(({ theme }) => ({
-  color: 'rgba(191, 225, 255, 0.95)',
-  backgroundColor: '#282c34da',
+  color: 'rgba(219, 239, 255, 0.95)',
+  backgroundColor: '#0d0f13da',
   boxShadow: '5px',
   padding: '1vw',
 
@@ -31,17 +31,17 @@ const PostCard = styled(Card)(({ theme }) => ({
 }));
 
 const PostCardEdit = styled(Card)(({ theme }) => ({
-  color: '#282c34da',
+  color: '#0d0f13da',
   padding: '1vw',
-  backgroundColor: 'rgba(191, 225, 255, 0.95)',
+  backgroundColor: 'rgba(219, 239, 255, 0.95)',
   boxShadow: '5px',
   // border: '1px solid',
   // borderColor: '#302f3f',
 
 }));
 const MyPaper = styled(Paper)(({ theme }) => ({
-  color: '#282c34da',
-  backgroundColor: 'rgba(191, 225, 255, 0.95)',
+  color: '#0d0f13da',
+  backgroundColor: 'rgba(219, 239, 255, 0.95)',
   overflow: 'hidden',
   borderRadius: 4,
   padding: '1vw'
@@ -52,25 +52,25 @@ const MyPaper = styled(Paper)(({ theme }) => ({
 }));
 
 const MyTextField = styled(TextField)(({
-  color: '#282c34da',
-  borderBottomColor: '#282c34da',
+  color: '#0d0f13da',
+  borderBottomColor: '#0d0f13da',
   '& label.Mui-focused': {
-    borderBottomColor: '#282c34da',
-    color: '#282c34da',
+    borderBottomColor: '#0d0f13da',
+    color: '#0d0f13da',
   },
   '& .MuiInput-underline:after': {
-    borderBottomColor: '#282c34da',
-    color: '#282c34da',
+    borderBottomColor: '#0d0f13da',
+    color: '#0d0f13da',
   },
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
-      borderColor: '#282c34da',
+      borderColor: '#0d0f13da',
     },
     '&:hover fieldset': {
-      borderColor: '#282c34da',
+      borderColor: '#0d0f13da',
     },
     '&.Mui-focused fieldset': {
-      borderColor: '#282c34da',
+      borderColor: '#0d0f13da',
     },
   },
 }));
@@ -78,9 +78,9 @@ const MyDialogContent = styled(DialogContent)(({ theme }) => ({
   color: '#131925',
   padding: '1vw',
   fontSize: '14pt',
-  backgroundColor: 'rgba(191, 225, 255, 0.95)',
+  backgroundColor: 'rgba(219, 239, 255, 0.95)',
   boxShadow: '5px',
-  zIndex: '3000',
+  zIndex: '2000',
 
   // border: '1px solid',
   // borderColor: '#302f3f',
@@ -89,10 +89,10 @@ const MyDialogContent = styled(DialogContent)(({ theme }) => ({
 const MyDialogTitle = styled(DialogTitle)(({ theme }) => ({
   color: '#131925',
   padding: '1vw',
-  backgroundColor: 'rgba(191, 225, 255, 0.95)',
+  backgroundColor: 'rgba(219, 239, 255, 0.95)',
   boxShadow: '5px',
   fontSize: '28pt',
-  zIndex: '3000',
+  zIndex: '2000',
 
   // border: '1px solid',
   // borderColor: '#302f3f',
@@ -102,9 +102,9 @@ const MyDialogActions = styled(DialogActions)(({ theme }) => ({
   color: '#131925',
   padding: '1vw',
   fontSize: '14pt',
-  zIndex: '3000',
+  zIndex: '2000',
 
-  backgroundColor: 'rgba(191, 225, 255, 0.95)',
+  backgroundColor: 'rgba(219, 239, 255, 0.95)',
   boxShadow: '5px',
   // border: '1px solid',
   // borderColor: '#302f3f',
@@ -113,13 +113,13 @@ const MyDialogActions = styled(DialogActions)(({ theme }) => ({
 const MyDialogContentText = styled(DialogContentText)(({ theme }) => ({
   color: '#131925',
   padding: '1vw',
-  backgroundColor: 'rgba(191, 225, 255, 0.95)',
+  backgroundColor: 'rgba(219, 239, 255, 0.95)',
   minWidth: '55vw',
   minHeight: '40vw',
   maxHeight: '50vw',
   boxShadow: '5px',
   fontSize: '14pt',
-  zIndex: '3000',
+  zIndex: '2000',
 
   
 
@@ -127,8 +127,8 @@ const MyDialogContentText = styled(DialogContentText)(({ theme }) => ({
   // borderColor: '#302f3f',
 }));
 const MyHeaderPaper = styled(Paper)(({ theme }) => ({
-  color: '#282c34da',
-  backgroundColor: 'rgba(191, 225, 255, 0.95)',
+  color: '#0d0f13da',
+  backgroundColor: 'rgba(219, 239, 255, 0.95)',
   // overflow: 'hidden',
   borderRadius: 4,
   padding: '1vw',
@@ -140,7 +140,7 @@ const MyHeaderPaper = styled(Paper)(({ theme }) => ({
   top:'0vw',
   left: '10vw',
   right: '10vw',
-  zIndex: '2000',
+  zIndex: '1000',
   
     // sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', marginLeft: '10vw', marginRight: '10vw', marginBottom: '4vw', marginTop: '4vw', position: 'fixed'}}
   // border: '1px solid',
@@ -171,4 +171,9 @@ const Header = () => {
 
 
 }
-export {ColorButton, PostCard, PostCardEdit, MyPaper as ColoredPaper, MyTextField, MyDialogContent, MyDialogActions, MyDialogTitle, MyDialogContentText, Header};
+
+const MySnackBar = styled(Snackbar)(() => ({
+  zIndex: 3000,
+
+}));
+export {ColorButton, MySnackBar, PostCard, PostCardEdit, MyPaper as ColoredPaper, MyTextField, MyDialogContent, MyDialogActions, MyDialogTitle, MyDialogContentText, Header};
