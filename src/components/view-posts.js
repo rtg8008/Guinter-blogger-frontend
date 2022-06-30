@@ -49,10 +49,16 @@ function Posts() {
       user_id: profile.id,
       date: (new Date().toUTCString())
     }
-    if (data.content.length > 1024){
-      data.content = data.content.substring(0,1024);
+    if (data.content.length > 2048){
+      data.content = data.content.substring(0,2048);
       console.log(data.content)
       console.log(data.content.length)
+    }
+    if (data.title.length > 128){
+      data.title = data.title.substring(0,127);
+    }
+    if (data.date.length > 128){
+      data.date = data.date.substring(0, 127)
     }
 
     // console.log('data', data);
@@ -67,7 +73,8 @@ function Posts() {
     .then(res => res.json())
     .then(data => {
       setPosts(data);
-
+      document.getElementById('new-post-title').value = ''
+      document.getElementById('new-post-content').value = ''
     })
     let temp = new Date()  
     // console.log(`${temp.toDateString()} ${temp.toUTCString()}`);
@@ -122,6 +129,12 @@ function Posts() {
       data.content = data.content.substring(0,2048);
       console.log(data.content)
       console.log(data.content.length)
+    }
+    if (data.title.length > 128){
+      data.title = data.title.substring(0,127);
+    }
+    if (data.date.length > 128){
+      data.date = data.date.substring(0, 127)
     }
     // console.log(data);
     const init = {
