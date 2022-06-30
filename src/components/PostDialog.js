@@ -5,7 +5,7 @@ import { TextField, Stack, Button, CardContent, Typography, CardActions, Textare
 import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import { API_URL, ProfileContext } from './ProfileContext';
-import { ColorButton } from './CustomComponents';
+import { ColorButton, MyDialogContent, MyDialogActions, MyDialogTitle, MyDialogContentText } from './CustomComponents';
 
 const PostDialog = ({post, username}) => {
   const [open, setOpen] = React.useState(false);
@@ -25,24 +25,24 @@ const PostDialog = ({post, username}) => {
     scroll={'paper'}
     // sx={{width: '50vw', margin: '25vw'}}
     >
-      <DialogTitle id={`dialog-title-${post.id}`}>{post.title}</DialogTitle>
-      <DialogContent
+      <MyDialogTitle id={`dialog-title-${post.id}`}>{post.title}</MyDialogTitle>
+      <MyDialogContent
         id={`dialog-content-${post.id}`}
         tabIndex={-1}
 
       >
-        <DialogContentText
+        <MyDialogContentText
           id={`dialog-content-text-${post.id}`}
           tabIndex={-1}
         >
           From: {username}<br></br>
           {post.content}
-        </DialogContentText>
+        </MyDialogContentText>
 
-      </DialogContent>
-      <DialogActions>
+      </MyDialogContent>
+      <MyDialogActions>
         <ColorButton size='small' onClick={handleClose}>close</ColorButton>
-      </DialogActions>
+      </MyDialogActions>
     </Dialog>    
     </>
 

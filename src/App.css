@@ -2,13 +2,14 @@ body{
   background-color: #131925;
   /* color: #282c34da; */
   color: rgb(191, 225, 255);
-  background-image: radial-gradient(#131925, #212429 10%, #0a152b 20%);
+  background-image: radial-gradient(#0a152b, #212429 10%, #131925 20%);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -44,4 +45,8 @@ body{
   to {
     transform: rotate(360deg);
   }
+}
+
+a{
+  color: rgb(191, 225, 255);
 }

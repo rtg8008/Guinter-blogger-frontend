@@ -223,7 +223,7 @@ function Posts() {
         {posts.map((e, i) => {
           if (e.isEditing){
             return (
-              <PostCardEdit sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}}>
+              <PostCardEdit key={i} sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}}>
                 <CardContent>
                   <Typography sx={{}} color ="text.secondary" gutterBottom>
                     {e.date}
@@ -253,7 +253,7 @@ function Posts() {
           }else{
 
             return (
-              <PostCard sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}}>
+              <PostCard key={i}sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}}>
                 <CardContent>
                   <Typography sx={{fontSize:14}}  gutterBottom>
                     {e.date}

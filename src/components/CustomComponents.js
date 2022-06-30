@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Button, Card, Paper, TextField } from "@mui/material";
+import { Button, Card, Dialog, DialogTitle, DialogActions, DialogContent, DialogContentText, Paper, TextField } from "@mui/material";
 
 
 const ColorButton = styled(Button)(({ theme }) => ({
@@ -72,5 +72,46 @@ const MyTextField = styled(TextField)(({
     },
   },
 }));
+const MyDialogContent = styled(DialogContent)(({ theme }) => ({
+  color: '#131925',
+  padding: '1vw',
+  fontSize: '14pt',
+  backgroundColor: 'rgba(191, 225, 255, 0.95)',
+  boxShadow: '5px',
+  // border: '1px solid',
+  // borderColor: '#302f3f',
 
-export {ColorButton, PostCard, PostCardEdit, ColoredPaper, MyTextField};
+}));
+const MyDialogTitle = styled(DialogTitle)(({ theme }) => ({
+  color: '#131925',
+  padding: '1vw',
+  backgroundColor: 'rgba(191, 225, 255, 0.95)',
+  boxShadow: '5px',
+  fontSize: '28pt',
+  // border: '1px solid',
+  // borderColor: '#302f3f',
+
+}));
+const MyDialogActions = styled(DialogActions)(({ theme }) => ({
+  color: '#131925',
+  padding: '1vw',
+  fontSize: '14pt',
+
+  backgroundColor: 'rgba(191, 225, 255, 0.95)',
+  boxShadow: '5px',
+  // border: '1px solid',
+  // borderColor: '#302f3f',
+
+}));
+const MyDialogContentText = styled(DialogContentText)(({ theme }) => ({
+  color: '#131925',
+  padding: '1vw',
+  backgroundColor: 'rgba(191, 225, 255, 0.95)',
+  boxShadow: '5px',
+  fontSize: '14pt',
+
+  // border: '1px solid',
+  // borderColor: '#302f3f',
+
+}));
+export {ColorButton, PostCard, PostCardEdit, ColoredPaper, MyTextField, MyDialogContent, MyDialogActions, MyDialogTitle, MyDialogContentText};
