@@ -6,6 +6,7 @@ import Card from '@mui/material/Card';
 import { API_URL, ProfileContext } from './ProfileContext';
 import PostDialog from './PostDialog';
 import {ColorButton, PostCard, PostCardEdit, ColoredPaper, MyTextField} from './CustomComponents'
+import Home from './home';
 
 function Posts() {
   const [posts, setPosts] = React.useState([{title: '', content: ''}])
@@ -55,10 +56,10 @@ function Posts() {
       console.log(data.content.length)
     }
     if (data.title.length > 128){
-      data.title = data.title.substring(0,127);
+      data.title = data.title.substring(0,128);
     }
     if (data.date.length > 128){
-      data.date = data.date.substring(0, 127)
+      data.date = data.date.substring(0, 128)
     }
 
     // console.log('data', data);
@@ -131,10 +132,10 @@ function Posts() {
       console.log(data.content.length)
     }
     if (data.title.length > 128){
-      data.title = data.title.substring(0,127);
+      data.title = data.title.substring(0,128);
     }
     if (data.date.length > 128){
-      data.date = data.date.substring(0, 127)
+      data.date = data.date.substring(0, 128)
     }
     // console.log(data);
     const init = {
@@ -185,39 +186,49 @@ function Posts() {
     }
     return post;
   }
-
+  if (profile.id === null || profile.id === undefined){
+    return (
+      <div className="App">
+        <Home></Home>
+      </div>
+    )
+  }
   return (
     <div className="App">
       {/* {names.map((e, i) => {
         return <p key = {e.id}>{e.first_name}</p>
       })} */}
-      <ColorButton onClick={()=>{
+      <ColorButton sx={{margin: '0.5vw'}} onClick={()=>{
         nav('/')
       }}>Home</ColorButton>
-      <h1>{profile.username}'s Blog Posts</h1>
+      <ColoredPaper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', marginLeft: '10vw', marginRight: '10vw', marginBottom: '4vw', marginTop: '4vw'}} elevation={10}>
+        <h1>{profile.username}'s Blog Posts</h1>
+      </ColoredPaper>
       <Box>
-        <ColoredPaper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}} elevation={10}>
+        <ColoredPaper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}} elevation={8}>
           <Stack sx={{backgroundColor: 'grey', margin: '1vw'}} spacing={2}>
             <h2>New Post</h2>
-            <MyTextField sx={{margin: '2vw'}} id = 'new-post-title' label='Title'></MyTextField>
+            <MyTextField sx={{margin: '2vw'}} id = 'new-post-title' label='title'></MyTextField>
             <MyTextField multiline maxRows={5} minRows={3} sx={{margin: '2vw'}} id = 'new-post-content' label='Content'></MyTextField>
             <ColorButton sx={{margin: '2vw'}} onClick={()=>{newPostHandler()}}>Post</ColorButton>
           </Stack>
         </ColoredPaper>
       </Box>
 
-
-      <h2>Your Posts</h2>
+      
+      <ColoredPaper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', marginLeft: '10vw', marginRight: '10vw'}} elevation={10}>
+        <h2>Your Posts</h2>
+      </ColoredPaper>
       <Stack sx={{padding:'2vw'}}>
         {posts.map((e, i) => {
           if (e.isEditing){
             return (
               <PostCardEdit sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}}>
                 <CardContent>
-                  <Typography sx={{fontSize:14}} color ="text.secondary" gutterBottom>
+                  <Typography sx={{}} color ="text.secondary" gutterBottom>
                     {e.date}
                   </Typography>
-                  <Typography sx={{fontSize:14, textAlign: 'left'}} color ="text.secondary" gutterBottom>
+                  <Typography variant='h5' sx={{ textAlign: 'left'}} color ="text.secondary" gutterBottom>
                     From: {getUsernameFromUserID(e.user_id)}
                   </Typography>
                   <Stack spacing={2}>

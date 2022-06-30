@@ -18,7 +18,7 @@ const PostDialog = ({post, username}) => {
   }
   return (
     <>
-    <ColorButton onClick ={handleOpen}>Read More</ColorButton>
+    <ColorButton size='small' onClick ={handleOpen}>Read More</ColorButton>
     <Dialog
     open={open}
     onClose={handleClose}
@@ -41,7 +41,7 @@ const PostDialog = ({post, username}) => {
 
       </DialogContent>
       <DialogActions>
-        <ColorButton onClick={handleClose}>close</ColorButton>
+        <ColorButton size='small' onClick={handleClose}>close</ColorButton>
       </DialogActions>
     </Dialog>    
     </>

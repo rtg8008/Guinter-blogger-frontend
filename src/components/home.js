@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import { API_URL, ProfileContext } from './ProfileContext';
 import PostDialog from './PostDialog';
-import { ColorButton, PostCard } from './CustomComponents';
+import { ColorButton, PostCard, ColoredPaper } from './CustomComponents';
 
 function Home() {
   const [posts, setPosts] = React.useState([{title: '', content: ''}])
@@ -59,8 +59,13 @@ function Home() {
       <ColorButton variant='contained' sx={{margin: '0.5vw'}} onClick={()=>{
         nav('/signup')
       }}>Sign Up</ColorButton>
-      <h1>Guinter Blog</h1>
-      <h2>All Posts</h2>
+      <ColoredPaper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', marginLeft: '10vw', marginRight: '10vw', marginBottom: '4vw', marginTop: '4vw'}} elevation={10}>
+        <h1>Guinter Blog</h1>
+      </ColoredPaper>
+      <ColoredPaper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', marginLeft: '12vw', marginRight: '12vw', marginBottom: '2vw', marginTop: '2vw'}} elevation={10}>
+        <h2>All Posts</h2>
+      </ColoredPaper>      
+
       <Stack sx={{padding:'2vw'}}>
         {posts.map((e, i) => {
             return (

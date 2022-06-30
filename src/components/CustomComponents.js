@@ -3,13 +3,13 @@ import { Button, Card, Paper, TextField } from "@mui/material";
 
 
 const ColorButton = styled(Button)(({ theme }) => ({
-  color: 'aliceblue',
+  color: 'rgb(191, 225, 255)',
   backgroundColor: '#282c34',
   boxShadow: '5px',
   // border: '1px solid',
   // borderColor: '#302f3f',
   '&:hover': {
-    backgroundColor: 'aliceblue',
+    backgroundColor: 'rgb(191, 225, 255)',
     color: '#282c34',
     // border: '1px solid',
     // borderColor: '#282c34',
@@ -18,9 +18,11 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 const PostCard = styled(Card)(({ theme }) => ({
-  color: 'aliceblue',
+  color: 'rgb(191, 225, 255)',
   backgroundColor: '#282c34',
   boxShadow: '5px',
+  padding: '1vw',
+
   // border: '1px solid',
   // borderColor: '#302f3f',
 
@@ -28,7 +30,8 @@ const PostCard = styled(Card)(({ theme }) => ({
 
 const PostCardEdit = styled(Card)(({ theme }) => ({
   color: '#282c34',
-  backgroundColor: 'aliceblue',
+  padding: '1vw',
+  backgroundColor: 'rgb(191, 225, 255)',
   boxShadow: '5px',
   // border: '1px solid',
   // borderColor: '#302f3f',
@@ -36,10 +39,10 @@ const PostCardEdit = styled(Card)(({ theme }) => ({
 }));
 const ColoredPaper = styled(Paper)(({ theme }) => ({
   color: '#282c34',
-  backgroundColor: 'aliceblue',
+  backgroundColor: 'rgb(191, 225, 255)',
   overflow: 'hidden',
   borderRadius: 4,
-
+  padding: '1vw'
 
   // border: '1px solid',
   // borderColor: '#302f3f',
