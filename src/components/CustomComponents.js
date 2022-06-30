@@ -107,8 +107,11 @@ const MyDialogContentText = styled(DialogContentText)(({ theme }) => ({
   color: '#131925',
   padding: '1vw',
   backgroundColor: 'rgba(191, 225, 255, 0.95)',
+  minWidth: '55vw',
+  minHeight: '60vw',
   boxShadow: '5px',
   fontSize: '14pt',
+  
 
   // border: '1px solid',
   // borderColor: '#302f3f',
