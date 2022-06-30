@@ -4,7 +4,7 @@ import { TextField, Stack, Button, FormControl, Card, Paper, Box, Alert } from '
 import { useNavigate } from 'react-router-dom';
 import { API_URL, ProfileContext } from './ProfileContext';
 import bcrypt from 'bcryptjs';
-import { ColorButton, ColoredPaper, MyTextField } from './CustomComponents';
+import { ColorButton, ColoredPaper, Header, MyTextField } from './CustomComponents';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
@@ -31,16 +31,11 @@ function SignUp() {
       {/* {names.map((e, i) => {
         return <p key = {e.id}>{e.first_name}</p>
       })} */}
-      <ColorButton sx={{margin: '0.5vw'}} onClick={()=>{
-        nav('/login')
-      }}>Login</ColorButton>
-      <ColorButton sx={{margin: '0.5vw'}}onClick={()=>{
-        nav('/')
-      }}>Home</ColorButton>
+      <Header></Header>
       <Stack spacing={2}>
 
         <Box>
-          <ColoredPaper sx={{margin: '10vw'}} elevation={10}>
+          <ColoredPaper sx={{position:'fixed', top:'175px', left:'20vw', right:'20vw'}} elevation={10}>
             <FormControl>
               <Stack spacing={1}>
                 <h1>Sign Up</h1>

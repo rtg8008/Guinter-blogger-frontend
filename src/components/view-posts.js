@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import { API_URL, ProfileContext } from './ProfileContext';
 import PostDialog from './PostDialog';
-import {ColorButton, PostCard, PostCardEdit, ColoredPaper, MyTextField} from './CustomComponents'
+import {ColorButton, PostCard, PostCardEdit, ColoredPaper, MyTextField, Header} from './CustomComponents'
 import Home from './home';
 
 function Posts() {
@@ -198,10 +198,8 @@ function Posts() {
       {/* {names.map((e, i) => {
         return <p key = {e.id}>{e.first_name}</p>
       })} */}
-      <ColorButton sx={{margin: '0.5vw'}} onClick={()=>{
-        nav('/')
-      }}>Home</ColorButton>
-      <ColoredPaper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', marginLeft: '10vw', marginRight: '10vw', marginBottom: '4vw', marginTop: '4vw'}} elevation={10}>
+      <Header></Header>
+      <ColoredPaper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', marginLeft: '10vw', marginRight: '10vw', marginBottom: '4vw', marginTop: '175px'}} elevation={10}>
         <h1>{profile.username}'s Blog Posts</h1>
       </ColoredPaper>
       <Box>

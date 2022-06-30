@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { ProfileContext } from './ProfileContext';
 import {API_URL} from './ProfileContext';
 import bcrypt from 'bcryptjs';
-import {ColorButton, ColoredPaper, MyTextField} from './CustomComponents'
+import {ColorButton, ColoredPaper, MyTextField, Header} from './CustomComponents'
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 function Login() {
@@ -31,16 +31,9 @@ function Login() {
         return <p key = {e.id}>{e.first_name}</p>
       })} */}
       <Stack spacing={2}>
-        <div>
-          <ColorButton sx={{margin: '0.5vw'}} onClick={()=>{
-            nav('/signup')
-          }}>Sign Up</ColorButton>
-          <ColorButton sx={{margin: '0.5vw'}} onClick={()=>{
-            nav('/')
-          }}>Home</ColorButton>
-        </div>
+      <Header></Header>
         <Box>
-          <ColoredPaper sx={{margin: '10vw'}} elevation={10}>
+          <ColoredPaper sx={{position:'fixed', top:'175px', left:'20vw', right:'20vw'}} elevation={10}>
             <FormControl>
               <Stack spacing={1}>
                 <h1>Login</h1>

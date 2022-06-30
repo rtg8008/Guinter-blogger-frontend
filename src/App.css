@@ -2,10 +2,13 @@ body{
   background-color: #131925;
   /* color: #282c34da; */
   color: rgb(191, 225, 255);
-  background-image: radial-gradient(#0a152b, #212429 10%, #131925 20%);
+  /* background-image: radial-gradient(#0a152b, #212429 10%, #131925 20%); */
+  background-image: url('https://techcrunch.com/wp-content/uploads/2020/07/space-force-logo.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
+
 }
 .App {
   text-align: center;
