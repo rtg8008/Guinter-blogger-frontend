@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import { API_URL, ProfileContext } from './ProfileContext';
 import PostDialog from './PostDialog';
-import {ColorButton, PostCard, PostCardEdit, ColoredPaper, MyTextField, Header} from './CustomComponents'
+import {ColorButton, PostCard, PostCardEdit, MyPaper, MyTextField, Header} from './CustomComponents'
 import Home from './home';
 
 function Posts() {
@@ -199,24 +199,24 @@ function Posts() {
         return <p key = {e.id}>{e.first_name}</p>
       })} */}
       <Header></Header>
-      <ColoredPaper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', marginLeft: '10vw', marginRight: '10vw', marginBottom: '4vw', marginTop: '175px'}} elevation={10}>
+      <MyPaper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', marginLeft: '10vw', marginRight: '10vw', marginBottom: '4vw', marginTop: '175px'}} elevation={10}>
         <h1>{profile.username}'s Blog Posts</h1>
-      </ColoredPaper>
+      </MyPaper>
       <Box>
-        <ColoredPaper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}} elevation={8}>
+        <MyPaper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', margin: '2vw'}} elevation={8}>
           <Stack sx={{backgroundColor: 'grey', margin: '1vw'}} spacing={2}>
             <h2>New Post</h2>
             <MyTextField sx={{margin: '2vw'}} id = 'new-post-title' label='title'></MyTextField>
             <MyTextField multiline maxRows={5} minRows={3} sx={{margin: '2vw'}} id = 'new-post-content' label='Content'></MyTextField>
             <ColorButton sx={{margin: '2vw'}} onClick={()=>{newPostHandler()}}>Post</ColorButton>
           </Stack>
-        </ColoredPaper>
+        </MyPaper>
       </Box>
 
       
-      <ColoredPaper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', marginLeft: '10vw', marginRight: '10vw'}} elevation={10}>
+      <MyPaper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', marginLeft: '10vw', marginRight: '10vw'}} elevation={10}>
         <h2>Your Posts</h2>
-      </ColoredPaper>
+      </MyPaper>
       <Stack sx={{padding:'2vw'}}>
         {posts.slice(0).reverse().map((e, i) => {
           if (e.isEditing){
@@ -277,7 +277,13 @@ function Posts() {
           }
         })}
       </Stack>
-
+      <MyPaper >
+        <p>
+          This website is created as a requirement for the USSF Z-Prefix "C.R.U.D application test" and is not officially sponsored by the USSF, Department of Defence, or U.S Government.
+          No promise of security or continuity of profiles or posts is provided to users of this cite. No moderation of content posted on this cite is provided.
+        </p>
+        <a href="https://iconscout.com/icons/g" target="_blank">G Icon</a> by <a href="https://iconscout.com/contributors/twitter-inc" target="_blank">Twitter Emoji</a>
+      </MyPaper>
     </div>
   );
 }

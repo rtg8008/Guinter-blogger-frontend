@@ -4,7 +4,7 @@ import { TextField, Stack, Button, FormControl, Card, Paper, Box, Alert } from '
 import { useNavigate } from 'react-router-dom';
 import { API_URL, ProfileContext } from './ProfileContext';
 import bcrypt from 'bcryptjs';
-import { ColorButton, ColoredPaper, Header, MyTextField } from './CustomComponents';
+import { ColorButton, MyPaper, Header, MyTextField } from './CustomComponents';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
@@ -35,7 +35,7 @@ function SignUp() {
       <Stack spacing={2}>
 
         <Box>
-          <ColoredPaper sx={{position:'fixed', top:'190px', left:'20vw', right:'20vw'}} elevation={10}>
+          <MyPaper sx={{position:'fixed', top:'190px', left:'20vw', right:'20vw'}} elevation={10}>
             <FormControl>
               <Stack spacing={1}>
                 <h1>Sign Up</h1>
@@ -46,14 +46,20 @@ function SignUp() {
                 <SignUpButton members={members} setMembers={setMembers} setProfile={setProfile} ></SignUpButton>
               </Stack>
             </FormControl>
-          </ColoredPaper>
+          </MyPaper>
         </Box>
 
 
       </Stack>
 
 
-
+      <MyPaper sx={{position:'fixed', bottom:'0vw'}}>
+        <p>
+          This website is created as a requirement for the USSF Z-Prefix "C.R.U.D application test" and is not officially sponsored by the USSF, Department of Defence, or U.S Government.
+          No promise of security or continuity of profiles or posts is provided to users of this cite. No moderation of content posted on this cite is provided.
+        </p>
+        <a href="https://iconscout.com/icons/g" target="_blank">G Icon</a> by <a href="https://iconscout.com/contributors/twitter-inc" target="_blank">Twitter Emoji</a>
+      </MyPaper>
 
     </div>
   );

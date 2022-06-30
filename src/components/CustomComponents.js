@@ -176,4 +176,4 @@ const MySnackBar = styled(Snackbar)(() => ({
   zIndex: 3000,
 
 }));
-export {ColorButton, MySnackBar, PostCard, PostCardEdit, MyPaper as ColoredPaper, MyTextField, MyDialogContent, MyDialogActions, MyDialogTitle, MyDialogContentText, Header};
+export {ColorButton, MySnackBar, PostCard, PostCardEdit, MyPaper, MyTextField, MyDialogContent, MyDialogActions, MyDialogTitle, MyDialogContentText, Header};

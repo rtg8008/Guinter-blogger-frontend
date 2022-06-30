@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import { API_URL, ProfileContext } from './ProfileContext';
 import PostDialog from './PostDialog';
-import { ColorButton, PostCard, ColoredPaper, Header } from './CustomComponents';
+import { ColorButton, PostCard, MyPaper, Header } from './CustomComponents';
 
 function Home() {
   const [posts, setPosts] = React.useState([])
@@ -51,9 +51,9 @@ function Home() {
   return (
     <div className="App" >
       <Header></Header>
-      <ColoredPaper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', marginLeft: '12vw', marginRight: '12vw', marginBottom: '1vw', marginTop: '190px'}} elevation={10}>
+      <MyPaper sx={{minWidth: 275, border: '2px 2px 2px 2px', borderColor: 'black', marginLeft: '12vw', marginRight: '12vw', marginBottom: '1vw', marginTop: '190px'}} elevation={10}>
         <h2>All Posts</h2>
-      </ColoredPaper>      
+      </MyPaper>      
 
       <Stack sx={{padding:'2vw'}}>
         {posts.slice(0).reverse().map((e, i) => {
@@ -80,7 +80,13 @@ function Home() {
               )
         })}
       </Stack>
-      <a href="https://iconscout.com/icons/g" target="_blank">G Icon</a> by <a href="https://iconscout.com/contributors/twitter-inc" target="_blank">Twitter Emoji</a>
+      <MyPaper>
+        <p>
+          This website is created as a requirement for the USSF Z-Prefix "C.R.U.D application test" and is not officially sponsored by the USSF, Department of Defence, or U.S Government.
+          No promise of security or continuity of profiles or posts is provided to users of this cite. No moderation of content posted on this cite is provided.
+        </p>
+        <a href="https://iconscout.com/icons/g" target="_blank">G Icon</a> by <a href="https://iconscout.com/contributors/twitter-inc" target="_blank">Twitter Emoji</a>
+      </MyPaper>
     </div>
   );
 }
